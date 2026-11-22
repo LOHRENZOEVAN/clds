@@ -1,0 +1,11 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Public visitors can read publications, projects, events, links, and team
+    match /{document=**} {
+      allow read: if true;
+      allow write: if true; // Set to 'request.auth != null' if using Firebase Auth users
+    }
+  }
+}
+

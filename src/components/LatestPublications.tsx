@@ -26,10 +26,10 @@ export default function LatestPublications() {
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-semibold uppercase tracking-wider mb-2">
               <FileText className="w-3.5 h-3.5 text-amber-700" />
-              <span>Research &amp; Archival Guides</span>
+              <span>Research and Archival Guides</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Publications &amp; Documents
+              Publications and Documents
             </h2>
             <p className="text-slate-600 text-sm mt-1 max-w-xl">
               Grammar sketches, ethical fieldwork protocols, and policy papers prepared by Cameroonian researchers and partner institutions.

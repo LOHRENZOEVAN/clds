@@ -120,11 +120,11 @@ export default function AdminPostsPage() {
             <div className="flex items-center gap-2">
               <FileText className="w-5 h-5 text-teal-600" />
               <h2 className="text-xl font-bold text-slate-900">
-                Posts &amp; Fieldwork Updates
+                Posts and Fieldwork Updates
               </h2>
             </div>
             <p className="text-xs text-slate-500 mt-1">
-              Publish news, fieldwork reports from Bamenda &amp; Grassfields, workshop announcements, and articles.
+              Publish news, fieldwork reports from Bamenda and Grassfields, workshop announcements, and articles.
             </p>
           </div>
 

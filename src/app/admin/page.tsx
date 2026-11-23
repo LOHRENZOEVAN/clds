@@ -61,7 +61,7 @@ export default function AdminDashboardPage() {
     <AdminLayout>
       <div className="space-y-8 max-w-7xl mx-auto">
         
-        {/* Welcome & Overview */}
+        {/* Welcome and Overview */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-xs">
           <div className="space-y-1">
             <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
@@ -71,7 +71,7 @@ export default function AdminDashboardPage() {
               Welcome to CLDS Administration
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 max-w-2xl">
-              Manage research publications, upload PDFs and documents, publish events and workshops, 
+              Manage research publications, upload PDFs and documents, publish events, 
               curate language projects, and configure Firebase Cloud Storage.
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
-        {/* Firebase Cloud Storage & Database Status Box */}
+        {/* Firebase Cloud Storage and Database Status Box */}
         <div className={`p-6 rounded-3xl border ${
           fbStatus?.isConfigured 
             ? 'bg-emerald-50/80 border-emerald-200 text-emerald-950' 
@@ -127,7 +127,7 @@ export default function AdminDashboardPage() {
                 <p className="text-xs opacity-90 leading-relaxed max-w-3xl">
                   {fbStatus?.isConfigured
                     ? 'Documents and PDFs are saved to Firebase Storage and metadata is synchronised with Cloud Firestore.'
-                    : 'You can create, edit, upload, and test documents right now! All changes persist locally. To connect your live Firebase project (Firestore & Storage), navigate to Firebase & Settings or add your credentials to .env.local.'}
+                    : 'You can create, edit, upload, and test documents right now! All changes persist locally. To connect your live Firebase project (Firestore and Storage), navigate to Firebase and Settings or add your credentials to .env.local.'}
                 </p>
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function AdminDashboardPage() {
         {/* 4 Metric Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           
-          {/* Card 1: Resources & Documents */}
+          {/* Card 1: Resources and Documents */}
           <Link
             href="/admin/resources"
             className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-emerald-300 transition-all flex flex-col justify-between space-y-3 group"
@@ -162,7 +162,7 @@ export default function AdminDashboardPage() {
               </span>
             </div>
             <div>
-              <h4 className="font-bold text-slate-900 text-xs">Resources &amp; Documents</h4>
+              <h4 className="font-bold text-slate-900 text-xs">Resources and Documents</h4>
               <p className="text-[11px] text-slate-500 mt-0.5">Research papers, grammars</p>
             </div>
           </Link>
@@ -182,11 +182,11 @@ export default function AdminDashboardPage() {
             </div>
             <div>
               <h4 className="font-bold text-slate-900 text-xs">Language Projects</h4>
-              <p className="text-[11px] text-slate-500 mt-0.5">Grassfields &amp; Cameroon</p>
+              <p className="text-[11px] text-slate-500 mt-0.5">Grassfields and Cameroon</p>
             </div>
           </Link>
 
-          {/* Card 3: Events & Clinics */}
+          {/* Card 3: Events and Clinics */}
           <Link
             href="/admin/events"
             className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-emerald-300 transition-all flex flex-col justify-between space-y-3 group"
@@ -200,12 +200,12 @@ export default function AdminDashboardPage() {
               </span>
             </div>
             <div>
-              <h4 className="font-bold text-slate-900 text-xs">Events &amp; Workshops</h4>
+              <h4 className="font-bold text-slate-900 text-xs">Events</h4>
               <p className="text-[11px] text-slate-500 mt-0.5">Clinics, symposia, IDIL</p>
             </div>
           </Link>
 
-          {/* Card 4: Links & Partners */}
+          {/* Card 4: Links and Partners */}
           <Link
             href="/admin/links"
             className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-emerald-300 transition-all flex flex-col justify-between space-y-3 group"
@@ -234,7 +234,7 @@ export default function AdminDashboardPage() {
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center gap-2">
                 <FileDown className="w-4 h-4 text-emerald-600" />
-                <h3 className="font-bold text-slate-900 text-sm">Recent Resources &amp; Documents</h3>
+                <h3 className="font-bold text-slate-900 text-sm">Recent Resources and Documents</h3>
               </div>
               <Link href="/admin/resources" className="text-xs text-emerald-700 font-semibold hover:underline">
                 Manage All &rarr;
@@ -265,7 +265,7 @@ export default function AdminDashboardPage() {
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center gap-2">
                 <CalendarDays className="w-4 h-4 text-teal-600" />
-                <h3 className="font-bold text-slate-900 text-sm">Upcoming Events &amp; Workshops</h3>
+                <h3 className="font-bold text-slate-900 text-sm">Upcoming Events</h3>
               </div>
               <Link href="/admin/events" className="text-xs text-emerald-700 font-semibold hover:underline">
                 Manage All &rarr;

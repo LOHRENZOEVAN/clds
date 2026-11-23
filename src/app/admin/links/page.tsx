@@ -94,7 +94,7 @@ export default function AdminLinksPage() {
             <div className="flex items-center gap-2">
               <Link2 className="w-5 h-5 text-purple-700" />
               <h2 className="text-xl font-bold text-slate-900">
-                External Links &amp; Partner Archives
+                External Links and Partner Archives
               </h2>
             </div>
             <p className="text-xs text-slate-500 mt-1">

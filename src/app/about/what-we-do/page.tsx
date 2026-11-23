@@ -35,19 +35,19 @@ export default function WhatWeDoPage() {
                 Documenting languages. Sustaining linguistic futures.
               </p>
               <p className="text-slate-300 text-base sm:text-lg leading-relaxed pt-1">
-                We undertake research, documentation, archiving, revitalisation, training, and community-led language initiatives with the aim of creating conditions for languages to remain viable.
+                We conduct documentation, archiving, revitalisation,research, training, and community-led language activities, with the aim of creating conditions for Cameroonian languages to remain viable.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Founding Purpose & Background Literature Section */}
+        {/* Founding Purpose and Background Literature Section */}
         <section className="py-20 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 
             <div className="text-center max-w-3xl mx-auto space-y-2 mb-12">
               <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-                Founding Purpose &amp; Context
+
               </span>
               <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
                 Why CLDS Was Established in Bamenda
@@ -61,7 +61,7 @@ export default function WhatWeDoPage() {
                   <Globe2 className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-amber-700">Part 1</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-amber-700"></span>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
                     Linguistic Diversity and Indigenous Languages at Risk
                   </h3>
@@ -79,9 +79,9 @@ export default function WhatWeDoPage() {
                   <ShieldAlert className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-rose-700">Part 2</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-rose-700"></span>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
-                    Outside-Led Archiving &amp; The Accessibility Gap
+                    Outside-Led Archiving and The Accessibility Gap
                   </h3>
                 </div>
               </div>
@@ -97,9 +97,9 @@ export default function WhatWeDoPage() {
                   <BookCheck className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">Part 3</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-700"></span>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
-                    Local Leadership, Equal Partnerships &amp; Sustainable Programs
+                    Local Leadership, Equal Partnerships and Sustainable Programs
                   </h3>
                 </div>
               </div>

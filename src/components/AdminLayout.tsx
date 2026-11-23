@@ -90,7 +90,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               CLDS Administration Gate
             </h1>
             <p className="text-xs text-slate-500 font-medium">
-              Centre for Language Documentation &amp; Sustainability &bull; Bamenda
+              Centre for Language Documentation and Sustainability &bull; Bamenda
             </p>
           </div>
 
@@ -157,12 +157,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const navItems = [
     { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-    { name: 'Resources & Documents', href: '/admin/resources', icon: FileDown },
+    { name: 'Resources and Documents', href: '/admin/resources', icon: FileDown },
     { name: 'Language Projects', href: '/admin/documentation', icon: FolderGit2 },
-    { name: 'Events & Workshops', href: '/admin/events', icon: CalendarDays },
-    { name: 'External Links & Archives', href: '/admin/links', icon: Link2 },
+    { name: 'Events', href: '/admin/events', icon: CalendarDays },
+    { name: 'External Links and Archives', href: '/admin/links', icon: Link2 },
     { name: 'Team Members', href: '/admin/team', icon: Users },
-    { name: 'Firebase & Settings', href: '/admin/settings', icon: Settings },
+    { name: 'Firebase and Settings', href: '/admin/settings', icon: Settings },
   ];
 
   return (

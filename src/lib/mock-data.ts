@@ -37,7 +37,7 @@ CLDS was established in Bamenda specifically to change this reality. By training
 - Community speakers retain primary ownership and rights over their cultural heritage.
 - Pedagogical materials can be developed locally for schools and cultural centers.
 - Equal, non-extractive partnerships are forged between Cameroonian researchers and international institutions.`,
-    author: 'Dr. Fidelis N. & CLDS Working Group',
+    author: 'Pius Akumbu and CLDS Team',
     category: 'Research',
     publishedAt: '2026-09-28',
     coverImage: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1200&q=80',
@@ -46,7 +46,7 @@ CLDS was established in Bamenda specifically to change this reality. By training
   },
   {
     id: 'post-3',
-    title: 'Oral Traditions & Ritual Songs of the Grassfields: Documentation Updates from Boyo and Mezam',
+    title: 'Oral Traditions and Ritual Songs of the Grassfields: Documentation Updates from Boyo and Mezam',
     slug: 'oral-traditions-ritual-songs-grassfields',
     excerpt: 'Field notes from recent documentation missions recording elder songsters and traditional medicinal vocabulary in endangered dialects of the Western Grassfields.',
     content: `Our fieldwork fellows recently returned from field deployments across the valleys of Boyo and Mezam divisions. Armed with high-fidelity directional microphones and solar charging kits, the teams documented over 45 hours of high-definition audio and 4K video capturing:
@@ -67,13 +67,13 @@ All documented data is being prepared according to FAIR and CARE principles for 
 export const INITIAL_EVENTS: CldsEvent[] = [
   {
     id: 'event-1',
-    title: 'Fieldwork Audio Engineering & FLEx Annotation Clinic',
+    title: 'Fieldwork Audio Engineering and FLEx Annotation Clinic',
     slug: 'fieldwork-audio-engineering-flex-clinic',
     eventType: 'Training Clinic',
     startDate: '2026-12-05',
     endDate: '2026-12-08',
     time: '09:00 AM - 04:30 PM WAT',
-    location: 'CLDS Archival Lab & Digital Studio, Bamenda',
+    location: 'CLDS Archival Lab and Digital Studio, Bamenda',
     region: 'North West Region, Cameroon',
     summary: 'A 4-day intensive practical training for university linguistics students on acoustic calibration, directional microphone setup, and Fieldworks Language Explorer (FLEx) interlinear glossing.',
     description: `Targeting student researchers and community documenters from the University of Bamenda and regional colleges.
@@ -82,7 +82,7 @@ Participants will receive hands-on training covering:
 2. Metadata collection compliant with Open Language Archives Community (OLAC) standards.
 3. Rapid dictionary building and morphological tagging using FLEx.
 4. Exporting data to local offline community repositories.`,
-    organizer: 'CLDS Technology & Archiving Directorate',
+    organizer: 'CLDS Technology and Archiving Directorate',
     registrationUrl: 'mailto:contact@clds-cameroon.org?subject=Register%20FLEx%20Clinic',
     isUpcoming: true,
     coverImage: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80',
@@ -90,7 +90,7 @@ Participants will receive hands-on training covering:
   },
   {
     id: 'event-2',
-    title: 'Cameroon Indigenous Languages & Sustainable Archiving Forum',
+    title: 'Cameroon Indigenous Languages and Sustainable Archiving Forum',
     slug: 'cameroon-indigenous-languages-archiving-forum',
     eventType: 'Conference',
     startDate: '2027-01-18',
@@ -105,7 +105,7 @@ Key focus tracks:
 - Orthography and literacy development for unwritten Cameroonian tongues.
 - Community ownership, intellectual property rights, and sacred speech protocols.
 - Mother-tongue early childhood literacy models.`,
-    organizer: 'CLDS & University Linguistic Partners',
+    organizer: 'CLDS and University Linguistic Partners',
     registrationUrl: 'mailto:contact@clds-cameroon.org?subject=Register%20IDIL%20Forum',
     isUpcoming: true,
     coverImage: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
@@ -113,7 +113,7 @@ Key focus tracks:
   },
   {
     id: 'event-3',
-    title: 'Grassfields Elder Storytelling & Oral Heritage Evening',
+    title: 'Grassfields Elder Storytelling and Oral Heritage Evening',
     slug: 'grassfields-elder-storytelling-evening',
     eventType: 'Community Forum',
     startDate: '2026-10-24',
@@ -122,7 +122,7 @@ Key focus tracks:
     region: 'North West Region, Cameroon',
     summary: 'Community gathering featuring master storytellers and praise singers, recorded with multicam video for community children and digital archiving.',
     description: 'An evening celebration of indigenous oral literature, proverbs, and musical riddles presented in Bafut and neighboring Grassfields languages with simultaneous student transcription.',
-    organizer: 'CLDS Community Engagement Unit & Bafut Cultural Association',
+    organizer: 'CLDS Community Engagement Unit and Bafut Cultural Association',
     isUpcoming: false,
     coverImage: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1200&q=80',
     featured: false,
@@ -140,7 +140,7 @@ export const INITIAL_PUBLICATIONS: Publication[] = [
     downloadUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
     fileSize: '2.4 MB',
     fileFormat: 'PDF',
-    languageCovered: 'Grassfields Bantu & Regional Languages',
+    languageCovered: 'Grassfields Bantu and Regional Languages',
     keywords: ['Linguistic Sovereignty', 'Cameroon', 'Archival Ethics', 'Capacity Building'],
     featured: true,
   },
@@ -189,15 +189,15 @@ export const INITIAL_PUBLICATIONS: Publication[] = [
 export const INITIAL_PROJECTS: DocumentationProject[] = [
   {
     id: 'proj-1',
-    title: 'Documentation of Endangered Western Grassfields Oral Epics & Ritual Chants',
-    languageName: 'Bafut & Neighboring Varieties',
+    title: 'Documentation of Endangered Western Grassfields Oral Epics and Ritual Chants',
+    languageName: 'Bafut and Neighboring Varieties',
     alternateNames: ['Fut', 'Bife', 'Western Ring'],
     region: 'Mezam Division, North West Region (Bamenda)',
     geneticAffiliation: 'Niger-Congo, Atlantic-Congo, Volta-Congo, Benue-Congo, Bantoid, Southern, Wide Grassfields, Narrow Grassfields, Ring, Center',
     status: 'Active',
     summary: 'Multi-year project preserving elder ceremonial dialogues, agricultural seasonal rituals, and folklore narration with simultaneous acoustic and cultural analysis.',
     description: 'This initiative partners with community elders in the Bafut kingdom and surrounding valleys. Due to rapid urbanization in Bamenda, ceremonial language registers known only to royal heralds and older women cultivators are disappearing. The project has gathered over 80 hours of high-definition audio-visual recordings, transcribed and translated into English and French.',
-    leadResearcher: 'Tanyi Emmanuel & Fieldwork Cohort',
+    leadResearcher: 'Tanyi Emmanuel and Fieldwork Cohort',
     communityConsultants: ['Pa Nkwenti (Elder Historian)', 'Mami Lum Esther (Cultural Custodian)', 'Prince Bih John'],
     startedYear: 2024,
     archiveRepository: 'CLDS Bamenda Local Digital Repository',
@@ -221,7 +221,7 @@ export const INITIAL_PROJECTS: DocumentationProject[] = [
     leadResearcher: 'Dr. Nfor Celestine',
     communityConsultants: ['Shey Shefa (Traditional Healer)', 'Mami Beri Comfort'],
     startedYear: 2023,
-    archiveRepository: 'CLDS Bamenda Archives & Community Library of Nkambe',
+    archiveRepository: 'CLDS Bamenda Archives and Community Library of Nkambe',
     mediaCount: {
       audioHours: 52,
       videoHours: 30,
@@ -239,7 +239,7 @@ export const INITIAL_PROJECTS: DocumentationProject[] = [
     status: 'Community In-Progress',
     summary: 'Collaborative audiovisual archive of weaving terminologies, birth celebration chants, and folktales narrated in ancestral Kom.',
     description: 'Working alongside women artisans and elder storytellers in Laikom and Fundong, documenting technical terms for traditional embroidery, Raffia bag weaving, and lullabies.',
-    leadResearcher: 'Chia Grace & CLDS Student Fellows',
+    leadResearcher: 'Chia Grace and CLDS Student Fellows',
     communityConsultants: ['Nangah Mary', 'Bobe Timah Francis'],
     startedYear: 2025,
     archiveRepository: 'CLDS Bamenda Repository',
@@ -255,39 +255,34 @@ export const INITIAL_PROJECTS: DocumentationProject[] = [
 export const INITIAL_TEAM: TeamMember[] = [
   {
     id: 'team-1',
-    name: 'Prof. Fidelis Nkemleke',
-    role: 'Executive Director & Principal Investigator',
-    affiliation: 'University of Bamenda & CLDS',
-    bio: 'Renowned Cameroonian linguist with over 25 years of research into language contact, documentation of Grassfields languages, and corpus linguistics. Passionate about local archival sovereignty.',
-    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
+    name: 'Pius Akumbu',
+    role: 'Executive Director',
+    bio: 'Leading Cameroonian linguist with extensive research in language documentation, description, and archiving. Committed to empowering Cameroonian speech communities, training emerging local linguists, and forging equitable international research partnerships.',
+    avatarUrl: '/images/Pius.jpeg',
     email: 'director@clds-cameroon.org',
   },
   {
     id: 'team-2',
-    name: 'Dr. Julius Che',
-    role: 'Head of Fieldwork & Community Documentation',
-    affiliation: 'CLDS Bamenda',
-    bio: 'Specialist in tone systems and syntax of Ring Bantu languages. Has directed multiple documentation field expeditions across Mezam, Menchum, and Momo divisions.',
-    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
-    email: 'fieldwork@clds-cameroon.org',
+    name: 'Patrick Atungsiri',
+    role: 'Field Worker',
+    bio: 'Linguistic field researcher conducting community-centered documentation, high-fidelity audio-visual recording, and grassroots linguistic data collection across indigenous speech communities.',
+    avatarUrl: '/images/patrick.jpeg',
+    email: 'atungsiri@clds-cameroon.org',
   },
   {
     id: 'team-3',
-    name: 'Mirabel Lum',
-    role: 'Digital Archivist & Data Curator',
-    affiliation: 'CLDS Bamenda',
-    bio: 'Directs the digitizing, transcription indexing, and long-term storage workflows. Coordinates student annotators and runs community archive access clinics.',
-    avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    email: 'archives@clds-cameroon.org',
+    name: 'Maurine Kefang',
+    role: 'Field Worker',
+    bio: 'Linguistic field researcher specializing in community mobilization, oral traditions archiving, and participatory mother-tongue language preservation initiatives.',
+    avatarUrl: '/images/maurine.jpeg',
+    email: 'kefang@clds-cameroon.org',
   },
   {
     id: 'team-4',
-    name: 'Emmanuel Forgwe',
-    role: 'Technology & Audio-Visual Production Lead',
-    affiliation: 'CLDS Bamenda',
-    bio: 'Leads digital recording equipment management, mobile solar fieldwork rigs, audio restoration, and the CLDS web portal and database systems.',
-    avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
-    email: 'tech@clds-cameroon.org',
+    name: 'Nelson Tschonghongei',
+    role: 'Field Worker',
+    bio: 'Linguistic field researcher engaged in on-the-ground documentation expeditions, acoustic tone recordings, and community language revitalization activities.',
+    email: 'tschonghongei@clds-cameroon.org',
   },
 ];
 
@@ -331,7 +326,7 @@ export const INITIAL_LINKS: ExternalLink[] = [
   },
   {
     id: 'link-6',
-    title: 'University of Yaoundé I - Department of African Languages & Linguistics',
+    title: 'University of Yaoundé I - Department of African Languages and Linguistics',
     url: 'https://www.uy1.uninet.cm',
     category: 'University Partner',
     description: 'Foundational institution for linguistic scholarship across Cameroon.',

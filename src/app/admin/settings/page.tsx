@@ -91,7 +91,7 @@ NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=G-FWPJ1LL5X6`;
           <div className="flex items-center gap-2">
             <Settings className="w-5 h-5 text-emerald-700" />
             <h2 className="text-xl font-bold text-slate-900">
-              Firebase Storage &amp; Database Settings
+              Firebase Storage and Database Settings
             </h2>
           </div>
           <p className="text-xs text-slate-500 mt-1">
@@ -163,7 +163,7 @@ NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=G-FWPJ1LL5X6`;
                 <span>How to Connect Your Firebase Account</span>
               </h3>
               <p className="text-xs text-slate-500">
-                Follow these 3 easy steps to connect your Firebase project for uploading and hosting documents &amp; PDFs.
+                Follow these 3 easy steps to connect your Firebase project for uploading and hosting documents and PDFs.
               </p>
             </div>
 
@@ -186,7 +186,7 @@ NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=G-FWPJ1LL5X6`;
             </div>
 
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-              <div className="font-bold text-slate-800 text-sm">Step 2: Enable Cloud Firestore &amp; Firebase Storage</div>
+              <div className="font-bold text-slate-800 text-sm">Step 2: Enable Cloud Firestore and Firebase Storage</div>
               <p>
                 In the Firebase Console sidebar:
               </p>
@@ -208,11 +208,11 @@ NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=G-FWPJ1LL5X6`;
           </div>
         </div>
 
-        {/* Database Utilities & Backup */}
+        {/* Database Utilities and Backup */}
         <div className="bg-white p-8 rounded-3xl border border-slate-200/90 shadow-xs space-y-4">
           <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
             <Database className="w-5 h-5 text-purple-600" />
-            <span>Data Export &amp; Maintenance</span>
+            <span>Data Export and Maintenance</span>
           </h3>
 
           <p className="text-xs text-slate-500 leading-relaxed">

@@ -101,7 +101,7 @@ export default async function ProjectDetailPage({
               {/* Description */}
               <div className="space-y-4 text-slate-700 leading-relaxed text-sm sm:text-base border-t border-slate-100 pt-6">
                 <h2 className="text-lg font-bold text-slate-900">
-                  Project Description &amp; Objectives
+                  Project Description and Objectives
                 </h2>
                 <p className="leading-relaxed whitespace-pre-line">
                   {project.description}
@@ -128,13 +128,13 @@ export default async function ProjectDetailPage({
                     <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-center">
                       <FileText className="w-5 h-5 text-amber-600 mx-auto mb-1" />
                       <div className="text-xl font-bold text-slate-900">{project.mediaCount.textPages || 0} pgs</div>
-                      <div className="text-[11px] text-slate-500 font-medium">Annotations &amp; Text</div>
+                      <div className="text-[11px] text-slate-500 font-medium">Annotations and Text</div>
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* Research Team & Consultants */}
+              {/* Research Team and Consultants */}
               <div className="pt-6 border-t border-slate-100 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
@@ -166,7 +166,7 @@ export default async function ProjectDetailPage({
               <div className="p-6 rounded-2xl bg-gradient-to-r from-emerald-950 to-slate-900 text-white space-y-2">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400">
                   <Database className="w-4 h-4" />
-                  <span>Archival Custodianship &amp; Access</span>
+                  <span>Archival Custodianship and Access</span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
                   Repository: <strong>{project.archiveRepository || 'CLDS Bamenda Local Archive'}</strong>. 

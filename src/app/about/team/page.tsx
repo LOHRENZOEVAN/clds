@@ -6,17 +6,23 @@ import Footer from '@/components/Footer';
 import Image from 'next/image';
 import { TeamMember } from '@/types';
 import { getTeam } from '@/lib/data-service';
+import { INITIAL_TEAM } from '@/lib/mock-data';
 import { Users, Mail, MapPin, Sparkles, Building2 } from 'lucide-react';
 
 export default function TeamPage() {
-  const [team, setTeam] = useState<TeamMember[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [team, setTeam] = useState<TeamMember[]>(INITIAL_TEAM);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function load() {
-      const data = await getTeam();
-      setTeam(data);
-      setLoading(false);
+      try {
+        const data = await getTeam();
+        if (data && data.length > 0) {
+          setTeam(data);
+        }
+      } catch (err) {
+        console.warn('Error fetching team updates:', err);
+      }
     }
     load();
   }, []);
@@ -32,14 +38,13 @@ export default function TeamPage() {
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold uppercase tracking-wider">
                 <Users className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Leadership &amp; Researchers</span>
+                <span>Leadership and Researchers</span>
               </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-                Our Team &amp; Collaborators
+                Our Team
               </h1>
               <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-                Meet the Cameroonian linguists, community elders, digital archivists, and student researchers 
-                driving sustainable language preservation in Bamenda and across the country.
+                Meet the Cameroonian team that runs this organization.
               </p>
             </div>
           </div>
@@ -48,21 +53,37 @@ export default function TeamPage() {
         {/* Team Grid */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {team.map((member) => (
                 <div
                   key={member.id}
                   className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl hover:border-emerald-300 transition-all flex flex-col group"
                 >
-                  <div className="relative h-64 w-full bg-slate-200 overflow-hidden">
-                    <Image
-                      src={member.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'}
-                      alt={member.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 25vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
+                  <div className="relative h-64 w-full bg-slate-100 overflow-hidden flex items-center justify-center">
+                    {member.avatarUrl ? (
+                      <Image
+                        src={member.avatarUrl}
+                        alt={member.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 25vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-slate-800 to-emerald-950 text-white p-6 text-center">
+                        <div className="w-20 h-20 rounded-full bg-emerald-500/20 border-2 border-emerald-400/30 flex items-center justify-center text-2xl font-bold tracking-wider text-emerald-300 shadow-inner">
+                          {member.name.split(' ').filter(Boolean).map(n => n[0]).join('').slice(0, 2).toUpperCase()}
+                        </div>
+                        <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400 mt-3">
+                          {member.role}
+                        </span>
+                        {member.affiliation && (
+                          <span className="text-[11px] text-slate-400 mt-1">
+                            {member.affiliation}
+                          </span>
+                        )}
+                      </div>
+                    )}
                   </div>
 
                   <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
@@ -70,7 +91,7 @@ export default function TeamPage() {
                       <h3 className="text-lg font-bold text-slate-900 group-hover:text-emerald-800 transition-colors">
                         {member.name}
                       </h3>
-                      
+
                       <p className="text-xs font-semibold text-emerald-700 mt-1">
                         {member.role}
                       </p>
@@ -98,15 +119,14 @@ export default function TeamPage() {
               ))}
             </div>
 
-            {/* Advisory & Community Elders Note */}
+            {/* Advisory and Community Elders Note */}
             <div className="mt-16 p-8 rounded-3xl bg-slate-50 border border-slate-200/80 max-w-4xl mx-auto space-y-3 text-center sm:text-left">
               <h3 className="text-lg font-bold text-slate-900">
-                Community Language Elders &amp; Village Custodians
+                Community Language Elders and Village Custodians
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                In addition to our resident linguistic researchers, CLDS works in close consultation with traditional village councils, 
-                women artisan collectives, and elder storytellers across Mezam, Boyo, Donga-Mantung, Menchum, and surrounding divisions. 
-                They are the principal custodians and arbiters of indigenous cultural knowledge.
+                In addition to our resident linguistic researchers, CLDS works in close consultation with traditional village councils,
+                arbiters of indigenous cultural knowledge.
               </p>
             </div>
 

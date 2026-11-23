@@ -6,30 +6,36 @@ import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { Publication } from '@/types';
 import { getPublications } from '@/lib/data-service';
-import { 
-  FileText, 
-  Download, 
-  Search, 
-  ExternalLink, 
-  Filter, 
-  BookOpen, 
-  Calendar, 
-  Users, 
+import { INITIAL_PUBLICATIONS } from '@/lib/mock-data';
+import {
+  FileText,
+  Download,
+  Search,
+  ExternalLink,
+  Filter,
+  BookOpen,
+  Calendar,
+  Users,
   Sparkles,
   FileDown
 } from 'lucide-react';
 
 export default function ResourcesPage() {
-  const [publications, setPublications] = useState<Publication[]>([]);
+  const [publications, setPublications] = useState<Publication[]>(INITIAL_PUBLICATIONS);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState<string>('All');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function load() {
-      const data = await getPublications();
-      setPublications(data);
-      setLoading(false);
+      try {
+        const data = await getPublications();
+        if (data && data.length > 0) {
+          setPublications(data);
+        }
+      } catch (err) {
+        console.warn('Error loading publications:', err);
+      }
     }
     load();
   }, []);
@@ -37,7 +43,7 @@ export default function ResourcesPage() {
   const types = ['All', 'Research Paper', 'Grammar Sketch', 'Dictionary', 'Report', 'Policy Brief', 'Documentation Guide'];
 
   const filtered = publications.filter(pub => {
-    const matchesSearch = 
+    const matchesSearch =
       pub.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       pub.abstract.toLowerCase().includes(searchTerm.toLowerCase()) ||
       pub.authors.some(a => a.toLowerCase().includes(searchTerm.toLowerCase())) ||
@@ -59,14 +65,13 @@ export default function ResourcesPage() {
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider">
                 <FileText className="w-3.5 h-3.5 text-amber-400" />
-                <span>Resources &amp; Documents</span>
+                <span>Resources</span>
               </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-                Resources &amp; Documents
+                Resources and Documents
               </h1>
               <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-                Access research papers, grammatical descriptions, fieldwork manuals, dictionaries, and language archive documents 
-                produced by the Centre for Language Documentation and Sustainability. Free to download for researchers and communities.
+                Explore publications on Cameroonian languages and cultures.
               </p>
             </div>
           </div>
@@ -75,11 +80,11 @@ export default function ResourcesPage() {
         {/* Directory Content */}
         <section className="py-12 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             {/* Search and Filters */}
             <div className="bg-slate-50 p-4 sm:p-6 rounded-3xl border border-slate-200/90 mb-10 space-y-4">
               <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-                
+
                 {/* Search */}
                 <div className="relative w-full md:w-96">
                   <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -108,11 +113,10 @@ export default function ResourcesPage() {
                     key={t}
                     type="button"
                     onClick={() => setSelectedType(t)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
-                      selectedType === t
-                        ? 'bg-amber-600 text-white shadow-xs'
-                        : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
-                    }`}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${selectedType === t
+                      ? 'bg-amber-600 text-white shadow-xs'
+                      : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
+                      }`}
                   >
                     {t}
                   </button>

@@ -4,11 +4,12 @@ import React, { useState, useEffect } from 'react';
 import AdminLayout from '@/components/AdminLayout';
 import { TeamMember } from '@/types';
 import { getTeam, saveTeamMember, deleteTeamMember } from '@/lib/data-service';
+import { INITIAL_TEAM } from '@/lib/mock-data';
 import { Users, Plus, Search, Trash2, Edit, X, CheckCircle2, Mail, Building2 } from 'lucide-react';
 import Image from 'next/image';
 
 export default function AdminTeamPage() {
-  const [team, setTeam] = useState<TeamMember[]>([]);
+  const [team, setTeam] = useState<TeamMember[]>(INITIAL_TEAM);
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -99,7 +100,7 @@ export default function AdminTeamPage() {
             <div className="flex items-center gap-2">
               <Users className="w-5 h-5 text-blue-700" />
               <h2 className="text-xl font-bold text-slate-900">
-                Team &amp; Research Cohort Management
+                Team and Research Cohort Management
               </h2>
             </div>
             <p className="text-xs text-slate-500 mt-1">
@@ -144,14 +145,20 @@ export default function AdminTeamPage() {
               className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-xs flex flex-col justify-between space-y-4"
             >
               <div className="flex items-start gap-4">
-                <div className="relative w-14 h-14 rounded-2xl overflow-hidden bg-slate-100 flex-shrink-0">
-                  <Image
-                    src={member.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'}
-                    alt={member.name}
-                    fill
-                    sizes="56px"
-                    className="object-cover"
-                  />
+                <div className="relative w-14 h-14 rounded-2xl overflow-hidden bg-slate-100 flex-shrink-0 flex items-center justify-center">
+                  {member.avatarUrl ? (
+                    <Image
+                      src={member.avatarUrl}
+                      alt={member.name}
+                      fill
+                      sizes="56px"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-slate-800 to-emerald-900 text-emerald-300 flex items-center justify-center font-bold text-sm">
+                      {member.name.split(' ').filter(Boolean).map(n => n[0]).join('').slice(0, 2).toUpperCase()}
+                    </div>
+                  )}
                 </div>
                 <div className="space-y-0.5 min-w-0">
                   <h3 className="font-bold text-slate-900 text-sm truncate">{member.name}</h3>
@@ -223,7 +230,7 @@ export default function AdminTeamPage() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-hidden"
-                    placeholder="e.g. Prof. Fidelis Nkemleke"
+                    placeholder="e.g. Pius Akumbu"
                   />
                 </div>
 
@@ -251,7 +258,7 @@ export default function AdminTeamPage() {
                       value={affiliation}
                       onChange={(e) => setAffiliation(e.target.value)}
                       className="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-emerald-600 focus:outline-hidden"
-                      placeholder="e.g. University of Bamenda & CLDS"
+                      placeholder="e.g. University of Bamenda and CLDS"
                     />
                   </div>
                 </div>
@@ -286,7 +293,7 @@ export default function AdminTeamPage() {
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Bio &amp; Research Focus *
+                    Bio and Research Focus *
                   </label>
                   <textarea
                     rows={4}

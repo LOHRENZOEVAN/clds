@@ -8,15 +8,15 @@ export default function Footer() {
     <footer className="bg-slate-950 text-slate-300 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-          
-          {/* Column 1: Brand & Literature Summary */}
+
+          {/* Column 1: Brand and Literature Summary */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3">
               <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-white/10 p-1 border border-emerald-500/30 flex-shrink-0">
-                <Image 
-                  src="/images/logo.png" 
-                  alt="CLDS Logo" 
-                  fill 
+                <Image
+                  src="/images/logo.png"
+                  alt="CLDS Logo"
+                  fill
                   sizes="48px"
                   className="object-contain"
                 />
@@ -24,18 +24,18 @@ export default function Footer() {
               <div>
                 <span className="font-bold text-lg text-white block">CLDS</span>
                 <span className="text-xs text-emerald-400 font-medium block">
-                  Centre for Language Documentation &amp; Sustainability
+                  Centre for Language Documentation and Sustainability
                 </span>
               </div>
             </Link>
-            
+
             <p className="text-sm text-slate-400 italic font-serif">
               &ldquo;Documenting languages. Sustaining linguistic futures.&rdquo;
             </p>
 
             <p className="text-xs text-slate-400 leading-relaxed pr-4">
-              Cameroon is a linguistically diverse nation with over 280 indigenous languages. 
-              CLDS is dedicated to community-centred, grassroots documentation, preparing 
+              Cameroon is a linguistically diverse nation with over 280 indigenous languages.
+              CLDS is dedicated to community-centred, grassroots documentation, preparing
               local youth and scholars to lead decisions regarding their ancestral tongues and cultural heritage.
             </p>
 
@@ -80,10 +80,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Work & Programs */}
+          {/* Column 3: Work and Programs */}
           <div>
             <h3 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-4">
-              Work &amp; Programs
+              Work and Programs
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -93,27 +93,27 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/resources" className="hover:text-white transition-colors">
-                  Resources &amp; Documents
+                  Resources and Documents
                 </Link>
               </li>
               <li>
                 <Link href="/events" className="hover:text-white transition-colors">
-                  Events &amp; Workshops
+                  Events
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Institutional Partners & Links */}
+          {/* Column 4: Institutional Partners and Links */}
           <div>
             <h3 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-4">
               Collaborations
             </h3>
             <ul className="space-y-2.5 text-xs text-slate-400">
               <li>
-                <a 
-                  href="https://www.silcam.org" 
-                  target="_blank" 
+                <a
+                  href="https://www.silcam.org"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 hover:text-emerald-400 transition-colors"
                 >
@@ -122,9 +122,9 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://www.eldp.net" 
-                  target="_blank" 
+                <a
+                  href="https://www.eldp.com"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 hover:text-emerald-400 transition-colors"
                 >
@@ -133,9 +133,9 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://www.elararchive.org" 
-                  target="_blank" 
+                <a
+                  href="https://www.elararchive.org"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 hover:text-emerald-400 transition-colors"
                 >
@@ -144,9 +144,9 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://dobes.mpi.nl" 
-                  target="_blank" 
+                <a
+                  href="https://dobes.mpi.nl"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 hover:text-emerald-400 transition-colors"
                 >
@@ -156,12 +156,12 @@ export default function Footer() {
               </li>
               <li>
                 <span className="block text-slate-500 pt-1">
-                  University of Bamenda (UBa)
+
                 </span>
               </li>
               <li>
                 <span className="block text-slate-500">
-                  University of Yaoundé I
+
                 </span>
               </li>
             </ul>

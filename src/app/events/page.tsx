@@ -7,29 +7,35 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CldsEvent } from '@/types';
 import { getEvents } from '@/lib/data-service';
-import { 
-  Calendar, 
-  MapPin, 
-  Clock, 
-  Users, 
-  ArrowRight, 
-  Search, 
-  Tag, 
+import { INITIAL_EVENTS } from '@/lib/mock-data';
+import {
+  Calendar,
+  MapPin,
+  Clock,
+  Users,
+  ArrowRight,
+  Search,
+  Tag,
   Sparkles,
   ExternalLink
 } from 'lucide-react';
 
 export default function EventsPage() {
-  const [events, setEvents] = useState<CldsEvent[]>([]);
+  const [events, setEvents] = useState<CldsEvent[]>(INITIAL_EVENTS);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState<'All' | 'Upcoming' | 'Past'>('All');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function load() {
-      const data = await getEvents();
-      setEvents(data);
-      setLoading(false);
+      try {
+        const data = await getEvents();
+        if (data && data.length > 0) {
+          setEvents(data);
+        }
+      } catch (err) {
+        console.warn('Error loading events:', err);
+      }
     }
     load();
   }, []);
@@ -45,8 +51,8 @@ export default function EventsPage() {
       filterType === 'All'
         ? true
         : filterType === 'Upcoming'
-        ? ev.isUpcoming
-        : !ev.isUpcoming;
+          ? ev.isUpcoming
+          : !ev.isUpcoming;
 
     return matchesSearch && matchesTiming;
   });
@@ -62,23 +68,23 @@ export default function EventsPage() {
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold uppercase tracking-wider">
                 <Calendar className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Gatherings, Clinics &amp; Symposia</span>
+                <span>Gatherings, Clinics and Symposia</span>
               </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-                Events &amp; Workshops
+                Events
               </h1>
               <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-                Participate in language documentation clinics, FLEx annotation workshops, 
+                Participate in language documentation clinics, FLEx annotation workshops,
                 community storytelling evenings, and international symposia held in Bamenda and across Cameroon.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Content & Filters */}
+        {/* Content and Filters */}
         <section className="py-12 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             {/* Filter Bar */}
             <div className="bg-slate-50 p-4 sm:p-6 rounded-3xl border border-slate-200/90 mb-10 flex flex-col md:flex-row gap-4 items-center justify-between">
               <div className="relative w-full md:w-96">
@@ -98,11 +104,10 @@ export default function EventsPage() {
                     key={tab}
                     type="button"
                     onClick={() => setFilterType(tab)}
-                    className={`px-4 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
-                      filterType === tab
-                        ? 'bg-emerald-700 text-white shadow-xs'
-                        : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
-                    }`}
+                    className={`px-4 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${filterType === tab
+                      ? 'bg-emerald-700 text-white shadow-xs'
+                      : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
+                      }`}
                   >
                     {tab} Events
                   </button>
@@ -136,11 +141,10 @@ export default function EventsPage() {
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute top-3 left-3">
-                          <span className={`px-2.5 py-1 text-xs font-bold rounded-full uppercase tracking-wider shadow-xs ${
-                            ev.isUpcoming 
-                              ? 'bg-emerald-600 text-white' 
-                              : 'bg-slate-700 text-slate-200'
-                          }`}>
+                          <span className={`px-2.5 py-1 text-xs font-bold rounded-full uppercase tracking-wider shadow-xs ${ev.isUpcoming
+                            ? 'bg-emerald-600 text-white'
+                            : 'bg-slate-700 text-slate-200'
+                            }`}>
                             {ev.isUpcoming ? 'Upcoming' : 'Past Event'}
                           </span>
                         </div>

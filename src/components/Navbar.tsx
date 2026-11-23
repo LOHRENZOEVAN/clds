@@ -46,7 +46,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Logo & Branding */}
+          {/* Logo and Branding */}
           <Link 
             href="/" 
             className="flex items-center gap-3.5 group focus:outline-hidden focus:ring-2 focus:ring-emerald-600 rounded-lg p-1"
@@ -66,7 +66,7 @@ export default function Navbar() {
                 CLDS
               </span>
               <span className="text-xs font-medium text-emerald-700 hidden sm:inline-block leading-tight">
-                Centre for Language Documentation &amp; Sustainability
+                Centre for Language Documentation and Sustainability
               </span>
               <span className="text-[11px] text-slate-500 hidden md:inline-block">
                 Cameroon
@@ -129,7 +129,7 @@ export default function Navbar() {
                     <Sparkles className="w-4 h-4 text-amber-500 flex-shrink-0" />
                     <div>
                       <div className="font-medium">What We Do</div>
-                      <div className="text-xs text-slate-500">Fieldwork, training, archiving &amp; revitalisation</div>
+                      <div className="text-xs text-slate-500">Fieldwork, training, archiving and revitalisation</div>
                     </div>
                   </Link>
 
@@ -144,7 +144,7 @@ export default function Navbar() {
                     <Users className="w-4 h-4 text-blue-600 flex-shrink-0" />
                     <div>
                       <div className="font-medium">Our Team</div>
-                      <div className="text-xs text-slate-500">Cameroonian linguists &amp; custodians</div>
+                      <div className="text-xs text-slate-500">Cameroonian linguists and custodians</div>
                     </div>
                   </Link>
 
@@ -159,7 +159,7 @@ export default function Navbar() {
                     <Mail className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                     <div>
                       <div className="font-medium">Contact Us</div>
-                      <div className="text-xs text-slate-500">Bamenda office location &amp; inquiries</div>
+                      <div className="text-xs text-slate-500">Bamenda office location and inquiries</div>
                     </div>
                   </Link>
                 </div>
@@ -285,7 +285,7 @@ export default function Navbar() {
                 pathname.startsWith('/projects') || pathname.startsWith('/documentation') ? 'bg-emerald-50 text-emerald-800' : 'text-slate-800 hover:bg-slate-50'
               }`}
             >
-              Language Projects &amp; Archives
+              Language Projects and Archives
             </Link>
 
             {/* Resources */}
@@ -295,7 +295,7 @@ export default function Navbar() {
                 pathname.startsWith('/resources') || pathname.startsWith('/publications') ? 'bg-emerald-50 text-emerald-800' : 'text-slate-800 hover:bg-slate-50'
               }`}
             >
-              Resources &amp; Documents
+              Resources and Documents
             </Link>
 
             {/* Events */}
@@ -305,7 +305,7 @@ export default function Navbar() {
                 pathname.startsWith('/events') ? 'bg-emerald-50 text-emerald-800' : 'text-slate-800 hover:bg-slate-50'
               }`}
             >
-              Events &amp; Workshops
+              Events
             </Link>
           </div>
         </div>

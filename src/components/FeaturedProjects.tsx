@@ -5,17 +5,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { DocumentationProject } from '@/types';
 import { getProjects } from '@/lib/data-service';
+import { INITIAL_PROJECTS } from '@/lib/mock-data';
 import { ArrowRight, FolderGit2, MapPin, Mic, Video, FileText } from 'lucide-react';
 
 export default function FeaturedProjects() {
-  const [projects, setProjects] = useState<DocumentationProject[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState<DocumentationProject[]>(INITIAL_PROJECTS.slice(0, 3));
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function load() {
-      const data = await getProjects();
-      setProjects(data.slice(0, 3));
-      setLoading(false);
+      try {
+        const data = await getProjects();
+        if (data && data.length > 0) {
+          setProjects(data.slice(0, 3));
+        }
+      } catch (err) {
+        console.warn('Error loading projects:', err);
+      }
     }
     load();
   }, []);
@@ -29,7 +35,7 @@ export default function FeaturedProjects() {
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider mb-2">
               <FolderGit2 className="w-3.5 h-3.5 text-emerald-700" />
-              <span>Living Archives &amp; Documentation</span>
+              <span>Living Archives and Documentation</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               Featured Language Projects

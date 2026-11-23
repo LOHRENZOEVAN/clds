@@ -46,7 +46,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Contact Info & Form */}
+        {/* Contact Info and Form */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -89,7 +89,7 @@ export default function ContactPage() {
                       <p className="text-xs text-slate-600 mt-1 space-y-1">
                         <span className="block">General inquiries: <strong className="text-slate-800">contact@clds-cameroon.org</strong></span>
                         <span className="block">Directorate: <strong className="text-slate-800">director@clds-cameroon.org</strong></span>
-                        <span className="block">Archives &amp; Fieldwork: <strong className="text-slate-800">archives@clds-cameroon.org</strong></span>
+                        <span className="block">Archives and Fieldwork: <strong className="text-slate-800">archives@clds-cameroon.org</strong></span>
                       </p>
                     </div>
                   </div>
@@ -100,10 +100,10 @@ export default function ContactPage() {
                       <Clock className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-bold text-slate-900">Office &amp; Laboratory Hours</h3>
+                      <h3 className="text-sm font-bold text-slate-900">Office and Laboratory Hours</h3>
                       <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                         Monday &ndash; Friday: 8:30 AM &ndash; 5:00 PM (WAT)<br />
-                        Saturday: Community Clinics &amp; Youth Workshops by appointment<br />
+                        Saturday: Community Clinics and Youth Workshops by appointment<br />
                         Sunday: Closed
                       </p>
                     </div>
@@ -204,9 +204,9 @@ export default function ContactPage() {
                           >
                             <option>General Inquiry</option>
                             <option>Fieldwork Documentation Collaboration</option>
-                            <option>Student &amp; Youth Training Workshops</option>
-                            <option>Archival Access &amp; Audio Recordings</option>
-                            <option>Partnership &amp; Funding Proposal</option>
+                            <option>Student and Youth Training Workshops</option>
+                            <option>Archival Access and Audio Recordings</option>
+                            <option>Partnership and Funding Proposal</option>
                           </select>
                         </div>
                       </div>

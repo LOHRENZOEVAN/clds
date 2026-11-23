@@ -26,7 +26,7 @@ const STORAGE_KEYS = {
   PUBLICATIONS: 'clds_publications_v1',
   PROJECTS: 'clds_projects_v1',
   EVENTS: 'clds_events_v1',
-  TEAM: 'clds_team_v1',
+  TEAM: 'clds_team_v4',
   LINKS: 'clds_links_v1',
   ADMIN_AUTH: 'clds_admin_auth_session',
 };
@@ -40,11 +40,32 @@ function getLocal<T>(key: string, defaultValue: T): T {
       localStorage.setItem(key, JSON.stringify(defaultValue));
       return defaultValue;
     }
-    return JSON.parse(raw) as T;
+    const parsed = JSON.parse(raw);
+    if (key === STORAGE_KEYS.TEAM && Array.isArray(parsed)) {
+      const hasOldMock = parsed.some((m: any) =>
+        m.name?.includes('Nkemleke') ||
+        m.name?.includes('Julius Che') ||
+        m.name?.includes('Mirabel Lum') ||
+        m.name?.includes('Emmanuel Forgwe')
+      );
+      if (hasOldMock) {
+        localStorage.setItem(key, JSON.stringify(defaultValue));
+        return defaultValue;
+      }
+    }
+    return parsed as T;
   } catch (err) {
     console.error(`Error reading ${key} from localStorage`, err);
     return defaultValue;
   }
+}
+
+// Timeout helper so Firebase never hangs client rendering
+async function withTimeout<T>(promise: Promise<T>, ms: number = 1500): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Firebase timeout')), ms))
+  ]);
 }
 
 // Safe localStorage setter
@@ -88,12 +109,12 @@ export async function getPosts(): Promise<Post[]> {
   if (isFirebaseConfigured && db) {
     try {
       const q = query(collection(db, 'posts'), orderBy('publishedAt', 'desc'));
-      const snapshot = await getDocs(q);
-      if (!snapshot.empty) {
-        return snapshot.docs.map(d => ({ id: d.id, ...d.data() } as Post));
+      const snapshot: any = await withTimeout(getDocs(q), 1500);
+      if (snapshot && !snapshot.empty) {
+        return snapshot.docs.map((d: any) => ({ id: d.id, ...d.data() } as Post));
       }
     } catch (err) {
-      console.warn('Firestore fetch failed, falling back to local store', err);
+      // Fallback
     }
   }
   return getLocal<Post[]>(STORAGE_KEYS.POSTS, INITIAL_POSTS);
@@ -161,12 +182,12 @@ export async function getPublications(): Promise<Publication[]> {
   if (isFirebaseConfigured && db) {
     try {
       const q = query(collection(db, 'publications'), orderBy('year', 'desc'));
-      const snapshot = await getDocs(q);
-      if (!snapshot.empty) {
-        return snapshot.docs.map(d => ({ id: d.id, ...d.data() } as Publication));
+      const snapshot: any = await withTimeout(getDocs(q), 1500);
+      if (snapshot && !snapshot.empty) {
+        return snapshot.docs.map((d: any) => ({ id: d.id, ...d.data() } as Publication));
       }
     } catch (err) {
-      console.warn('Firestore publications fetch error', err);
+      // Fallback
     }
   }
   return getLocal<Publication[]>(STORAGE_KEYS.PUBLICATIONS, INITIAL_PUBLICATIONS);
@@ -215,12 +236,12 @@ export async function deletePublication(id: string): Promise<void> {
 export async function getProjects(): Promise<DocumentationProject[]> {
   if (isFirebaseConfigured && db) {
     try {
-      const snapshot = await getDocs(collection(db, 'projects'));
-      if (!snapshot.empty) {
-        return snapshot.docs.map(d => ({ id: d.id, ...d.data() } as DocumentationProject));
+      const snapshot: any = await withTimeout(getDocs(collection(db, 'projects')), 1500);
+      if (snapshot && !snapshot.empty) {
+        return snapshot.docs.map((d: any) => ({ id: d.id, ...d.data() } as DocumentationProject));
       }
     } catch (err) {
-      console.warn('Firestore projects fetch error', err);
+      // Fallback
     }
   }
   return getLocal<DocumentationProject[]>(STORAGE_KEYS.PROJECTS, INITIAL_PROJECTS);
@@ -285,12 +306,12 @@ export async function getEvents(): Promise<CldsEvent[]> {
   if (isFirebaseConfigured && db) {
     try {
       const q = query(collection(db, 'events'), orderBy('startDate', 'desc'));
-      const snapshot = await getDocs(q);
-      if (!snapshot.empty) {
-        return snapshot.docs.map(d => ({ id: d.id, ...d.data() } as CldsEvent));
+      const snapshot: any = await withTimeout(getDocs(q), 1500);
+      if (snapshot && !snapshot.empty) {
+        return snapshot.docs.map((d: any) => ({ id: d.id, ...d.data() } as CldsEvent));
       }
     } catch (err) {
-      console.warn('Firestore events fetch error', err);
+      // Fallback
     }
   }
   return getLocal<CldsEvent[]>(STORAGE_KEYS.EVENTS, INITIAL_EVENTS);
@@ -355,12 +376,12 @@ export async function deleteEvent(id: string): Promise<void> {
 export async function getTeam(): Promise<TeamMember[]> {
   if (isFirebaseConfigured && db) {
     try {
-      const snapshot = await getDocs(collection(db, 'team'));
-      if (!snapshot.empty) {
-        return snapshot.docs.map(d => ({ id: d.id, ...d.data() } as TeamMember));
+      const snapshot: any = await withTimeout(getDocs(collection(db, 'team')), 1500);
+      if (snapshot && !snapshot.empty) {
+        return snapshot.docs.map((d: any) => ({ id: d.id, ...d.data() } as TeamMember));
       }
     } catch (err) {
-      console.warn('Firestore team fetch error', err);
+      // Fallback seamlessly to local storage / seed
     }
   }
   return getLocal<TeamMember[]>(STORAGE_KEYS.TEAM, INITIAL_TEAM);

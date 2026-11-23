@@ -7,35 +7,41 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { DocumentationProject } from '@/types';
 import { getProjects } from '@/lib/data-service';
-import { 
-  FolderGit2, 
-  Search, 
-  MapPin, 
-  Mic, 
-  Video, 
-  FileText, 
-  Filter, 
+import { INITIAL_PROJECTS } from '@/lib/mock-data';
+import {
+  FolderGit2,
+  Search,
+  MapPin,
+  Mic,
+  Video,
+  FileText,
+  Filter,
   ArrowRight,
   Globe2
 } from 'lucide-react';
 
 export default function ProjectsPage() {
-  const [projects, setProjects] = useState<DocumentationProject[]>([]);
+  const [projects, setProjects] = useState<DocumentationProject[]>(INITIAL_PROJECTS);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedStatus, setSelectedStatus] = useState<string>('All');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function load() {
-      const data = await getProjects();
-      setProjects(data);
-      setLoading(false);
+      try {
+        const data = await getProjects();
+        if (data && data.length > 0) {
+          setProjects(data);
+        }
+      } catch (err) {
+        console.warn('Error loading projects:', err);
+      }
     }
     load();
   }, []);
 
   const filtered = projects.filter(p => {
-    const matchesSearch = 
+    const matchesSearch =
       p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       p.languageName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       p.region.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -56,32 +62,31 @@ export default function ProjectsPage() {
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold uppercase tracking-wider">
                 <FolderGit2 className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Fieldwork Collections &amp; Research</span>
+                <span>Fieldwork Collections and Research</span>
               </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
                 Language Documentation Projects
               </h1>
               <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-                Explore our ongoing and completed documentation projects across the North West Region and other linguistic zones of Cameroon. 
-                All recordings and manuscripts are preserved with community-centered custodianship.
+                Explore ongoing and past documentation projects on Cameroonian languages.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Directory & Filters */}
+        {/* Directory and Filters */}
         <section className="py-12 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             {/* Search and Filter Controls */}
             <div className="bg-slate-50 p-4 sm:p-6 rounded-3xl border border-slate-200/90 mb-10 flex flex-col md:flex-row gap-4 items-center justify-between">
-              
+
               {/* Search Bar */}
               <div className="relative w-full md:w-96">
                 <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
-                  placeholder="Search by language, region, or title..."
+                  placeholder="Search by language, author, or title..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-emerald-600 bg-white text-sm"
@@ -99,11 +104,10 @@ export default function ProjectsPage() {
                     key={status}
                     type="button"
                     onClick={() => setSelectedStatus(status)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
-                      selectedStatus === status
-                        ? 'bg-emerald-700 text-white shadow-xs'
-                        : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
-                    }`}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${selectedStatus === status
+                      ? 'bg-emerald-700 text-white shadow-xs'
+                      : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
+                      }`}
                   >
                     {status}
                   </button>
@@ -147,11 +151,10 @@ export default function ProjectsPage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute top-3 right-3">
-                        <span className={`px-2.5 py-1 text-xs font-bold rounded-full uppercase tracking-wider shadow-xs ${
-                          proj.status === 'Active'
-                            ? 'bg-emerald-600 text-white'
-                            : 'bg-amber-500 text-white'
-                        }`}>
+                        <span className={`px-2.5 py-1 text-xs font-bold rounded-full uppercase tracking-wider shadow-xs ${proj.status === 'Active'
+                          ? 'bg-emerald-600 text-white'
+                          : 'bg-amber-500 text-white'
+                          }`}>
                           {proj.status}
                         </span>
                       </div>

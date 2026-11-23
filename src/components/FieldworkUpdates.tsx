@@ -27,7 +27,7 @@ export default function FieldworkUpdates() {
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-100 text-teal-800 text-xs font-semibold uppercase tracking-wider mb-2">
               <Tag className="w-3.5 h-3.5 text-teal-700" />
-              <span>News &amp; Field Dispatches</span>
+              <span>News and Field Dispatches</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               Latest from the Field in Cameroon
@@ -41,7 +41,7 @@ export default function FieldworkUpdates() {
             href="/news"
             className="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-800 hover:text-emerald-700 hover:underline"
           >
-            <span>All News &amp; Updates</span>
+            <span>All News and Updates</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

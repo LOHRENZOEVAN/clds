@@ -32,7 +32,7 @@ export default function AdminEventsPage() {
   const [startDate, setStartDate] = useState(new Date().toISOString().split('T')[0]);
   const [endDate, setEndDate] = useState('');
   const [time, setTime] = useState('09:00 AM - 04:30 PM WAT');
-  const [location, setLocation] = useState('CLDS Archival Lab & Digital Studio, Bamenda');
+  const [location, setLocation] = useState('CLDS Archival Lab and Digital Studio, Bamenda');
   const [region, setRegion] = useState('North West Region, Cameroon');
   const [summary, setSummary] = useState('');
   const [description, setDescription] = useState('');
@@ -57,7 +57,7 @@ export default function AdminEventsPage() {
     setStartDate(new Date().toISOString().split('T')[0]);
     setEndDate('');
     setTime('09:00 AM - 04:30 PM WAT');
-    setLocation('CLDS Archival Lab & Digital Studio, Bamenda');
+    setLocation('CLDS Archival Lab and Digital Studio, Bamenda');
     setRegion('North West Region, Cameroon');
     setSummary('');
     setDescription('');
@@ -140,7 +140,7 @@ export default function AdminEventsPage() {
             <div className="flex items-center gap-2">
               <CalendarDays className="w-5 h-5 text-emerald-700" />
               <h2 className="text-xl font-bold text-slate-900">
-                Events &amp; Workshops Management
+                Events Management
               </h2>
             </div>
             <p className="text-xs text-slate-500 mt-1">
@@ -185,7 +185,7 @@ export default function AdminEventsPage() {
                 <tr>
                   <th className="py-3.5 px-6">Event Title</th>
                   <th className="py-3.5 px-4">Type</th>
-                  <th className="py-3.5 px-4">Date &amp; Time</th>
+                  <th className="py-3.5 px-4">Date and Time</th>
                   <th className="py-3.5 px-4">Location</th>
                   <th className="py-3.5 px-4">Status</th>
                   <th className="py-3.5 px-6 text-right">Actions</th>
@@ -280,7 +280,7 @@ export default function AdminEventsPage() {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     className="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-hidden"
-                    placeholder="e.g. Fieldwork Audio Engineering & FLEx Annotation Clinic"
+                    placeholder="e.g. Fieldwork Audio Engineering and FLEx Annotation Clinic"
                   />
                 </div>
 
@@ -367,7 +367,7 @@ export default function AdminEventsPage() {
                       value={organizer}
                       onChange={(e) => setOrganizer(e.target.value)}
                       className="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-emerald-600 focus:outline-hidden"
-                      placeholder="e.g. CLDS Bamenda & UBa"
+                      placeholder="e.g. CLDS Bamenda and UBa"
                     />
                   </div>
                 </div>
@@ -388,7 +388,7 @@ export default function AdminEventsPage() {
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Full Event Details &amp; Program Schedule *
+                    Full Event Details and Program Schedule *
                   </label>
                   <textarea
                     rows={6}

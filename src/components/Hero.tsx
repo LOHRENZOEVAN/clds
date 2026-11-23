@@ -75,7 +75,7 @@ export default function Hero() {
 
               <div className="mt-6 text-center">
                 <h3 className="font-bold text-lg text-white">
-                  Centre for Language Documentation &amp; Sustainability
+                  Centre for Language Documentation and Sustainability
                 </h3>
                 <p className="text-xs text-emerald-400 font-medium mt-1">
                   Cameroon

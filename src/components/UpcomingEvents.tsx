@@ -4,15 +4,22 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { CldsEvent } from '@/types';
 import { getEvents } from '@/lib/data-service';
+import { INITIAL_EVENTS } from '@/lib/mock-data';
 import { Calendar, MapPin, ArrowRight, Clock, Sparkles } from 'lucide-react';
 
 export default function UpcomingEvents() {
-  const [events, setEvents] = useState<CldsEvent[]>([]);
+  const [events, setEvents] = useState<CldsEvent[]>(INITIAL_EVENTS.filter(e => e.isUpcoming).slice(0, 3));
 
   useEffect(() => {
     async function load() {
-      const data = await getEvents();
-      setEvents(data.filter(e => e.isUpcoming).slice(0, 3));
+      try {
+        const data = await getEvents();
+        if (data && data.length > 0) {
+          setEvents(data.filter(e => e.isUpcoming).slice(0, 3));
+        }
+      } catch (err) {
+        console.warn('Error loading upcoming events:', err);
+      }
     }
     load();
   }, []);
@@ -28,10 +35,10 @@ export default function UpcomingEvents() {
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider mb-2">
               <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
-              <span>Training Clinics &amp; Gatherings</span>
+              <span>Training Clinics and Gatherings</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Upcoming Events &amp; Workshops
+              Upcoming Events
             </h2>
             <p className="text-slate-600 text-sm mt-1 max-w-xl">
               Capacity-building clinics, linguistic forums, and community archiving events hosted in Bamenda and regional centers.
@@ -42,7 +49,7 @@ export default function UpcomingEvents() {
             href="/events"
             className="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-800 hover:text-emerald-700 hover:underline"
           >
-            <span>All Events &amp; Schedule</span>
+            <span>All Events and Schedule</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
